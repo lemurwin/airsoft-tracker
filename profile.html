@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Airsoft Testing</title>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+      <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/fbbc7a65d4.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC0Vq523kRMRNc3COAzlfAK08_4e-6QT1I",
+    authDomain: "airsoft-tracker-36cfc.firebaseapp.com",
+    databaseURL: "https://airsoft-tracker-36cfc.firebaseio.com",
+    projectId: "airsoft-tracker-36cfc",
+    storageBucket: "airsoft-tracker-36cfc.appspot.com",
+    messagingSenderId: "66907555460"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src = "https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+  <script src="./pageview.js"></script>
+
+  <script src="./index.js"></script>
+
+
+
+<style>
+.navbar{
+  border:none;
+  background-color: white;
+  font-size:75%;
+}
+.container{
+  margin-bottom: -20px;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                   <div class="navbar-header">
+                       <a class="navbar-brand" href="./index.html" style="font-size:2em; color:grey;">Airsoft Tracker</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                  </div>
+
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="./index.html">Tracker</a></li>
+                  <li class="active"><a href="./profile.html">Profiles</a></li>
+                </ul>
+                </div>
+              </div>
+           </nav>
+
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h1 id="namePlace">Choose a Player</h1>
+        <form>
+        <select name="players" id="players">
+          <option value="Choose a Name">Choose a name</option>
+          <option value="HellJumper">HellJumper</option>
+          <option value="Pariah">Pariah</option>
+          <option value="Chocobear">Chocobear</option>
+          <option value="Binks">Binks</option>
+          <option value="BigSlice">BigSlice</option>
+        </select>
+      </form>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>All Games</h2>
+      <div class="col-sm-12" id="gameContainer"></div>
+    </div>
+  </div>
+</div>
+
+
+</body>
