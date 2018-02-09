@@ -1,0 +1,47 @@
+h1{
+  font-size: 30px;
+}
+#kills{
+  background-color:green;
+  height:240px;
+  width:100%;
+  font-size:40px;
+}
+#deaths{
+  height:70px;
+  width:100%;
+  background-color:red;
+  font-size:30px;
+}
+#reset{
+  height:50px;
+  width:50%;
+  background-color:pink;
+}
+#submit{
+  height:50px;
+  width:50%;
+  background-color:greenyellow;
+}
+#counter{
+  font-size:30px;
+  color:black;
+}
+#killsCounter{
+  font-size: 30px;
+  color:black;
+}
+
+#deathsCounter{
+  font-size:30px;
+  color:black;
+}
+
+.navbar{
+  border:none;
+  background-color: white;
+  font-size:75%;
+}
+.container{
+  margin-bottom: -10px;
+}

@@ -75,5 +75,6 @@ $(document).ready(function(){
       else {
         alert("Choose a player");
       }
+      alert('Submission Complete');
     });
   });
