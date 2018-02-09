@@ -10,7 +10,7 @@ $('#gameContainer').html('');
   var firebaseUser = firebase.database().ref(name);
   firebaseUser.on('value', function(snapshot){
     $('#gameContainer').html('');
-      let userObjecct = snapshot.val();
+      let userObject = snapshot.val();
       //console.log(userObject);
       // Various variables to store information
       let totalKills = 0;
