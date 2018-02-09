@@ -12,7 +12,8 @@ $('#gameContainer').html('');
     $('#gameContainer').html('');
       let userArray = snapshot.val();
       //console.log(userArray);
-
+      let totalKills = 0;
+      let totalDeaths = 0;
       $.each(userArray, function(key, value){
 
        let month = key.substr(4, 2);
@@ -27,6 +28,8 @@ $('#gameContainer').html('');
        if (value.location == undefined) {
          location = "No Location Data Logged"
        };
+       totalKills = totalKills+value.kills;
+       totalDeaths = totalDeaths + value.deaths;
 
        let titleRender = '<div class="row"><div class="col-md-12"><h3>Date ';
        let statsRender = '<div class="row"><div class="col-md-12 ">';
@@ -36,7 +39,8 @@ $('#gameContainer').html('');
        $('#gameContainer').append(statsRender+'Kills: '+killCounter+ statsRenderEnd+statsRender+'Deaths: '+deathCounter+statsRenderEnd);
        $('#gameContainer').append(statsRender+'K/D Ratio: '+ killCounter/deathCounter + statsRenderEnd);
           });
-
+        $('#totalRatio').html('Total K/D Ratio: '+(totalKills/totalDeaths).toFixed(2));
         });
+
     });
 });
