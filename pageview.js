@@ -14,6 +14,9 @@ $('#gameContainer').html('');
       //console.log(userArray);
       let totalKills = 0;
       let totalDeaths = 0;
+      let totalWins= 0;
+      let totalLosses=0;
+      let totalUnknown=0;
       $.each(userArray, function(key, value){
 
        let month = key.substr(4, 2);
@@ -25,9 +28,18 @@ $('#gameContainer').html('');
        let killCounter = value.kills;
        let kdRatio = killCounter/deathCounter;
        let location = value.location;
-       if (value.location == undefined) {
+       if (value.location == undefined || value.location == '') {
          location = "No Location Data Logged"
        };
+
+       if (value.record == 'Win' || value.record == 'win'){
+         totalWins=totalWins+1;
+       } else if(value.record == 'Loss'|| value.record == 'loss'){
+         totalLosses=totalLosses+1;
+       } else if(value.record == 'Unknown' || value.record == 'unknown'){
+         totalUnknown = totalUnknown+1;
+       }
+
        totalKills = totalKills+value.kills;
        totalDeaths = totalDeaths + value.deaths;
 
@@ -35,10 +47,11 @@ $('#gameContainer').html('');
        let statsRender = '<div class="row"><div class="col-md-12 ">';
        let statsRenderEnd = '</div></div>';
        $('#gameContainer').append(titleRender + month+'/'+day + '/' + year+' '+time+'</h3>');
-       $('#gameContainer').append(statsRender + location + statsRenderEnd);
+       $('#gameContainer').append(statsRender + location + ' - '+ value.record + statsRenderEnd);
        $('#gameContainer').append(statsRender+'Kills: '+killCounter+ statsRenderEnd+statsRender+'Deaths: '+deathCounter+statsRenderEnd);
-       $('#gameContainer').append(statsRender+'K/D Ratio: '+ killCounter/deathCounter + statsRenderEnd);
+       $('#gameContainer').append(statsRender+'K/D Ratio: '+ (killCounter/deathCounter).toFixed(2) + statsRenderEnd);
           });
+          $('#winRecord').html('Total Win/Loss Record: ' + totalWins +' Wins, '+totalLosses+' Losses, '+ totalUnknown + ' Other');
         $('#totalRatio').html('Total K/D Ratio: '+(totalKills/totalDeaths).toFixed(2));
         });
 

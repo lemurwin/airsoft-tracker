@@ -38,6 +38,7 @@ $(document).ready(function(){
     kills: 0,
     deaths: 0,
     location: 0,
+    record: 0,
   };
 
 
@@ -68,13 +69,20 @@ $(document).ready(function(){
       let currentTime= timestamp();
       let user = $('select[name="players"]').val();
       let location = $('input[name="location"]').val();
+      let record = $('input[name="record"]:checked').val();
+
+      userData.record = record;
       userData.location = location;
+      if (record == undefined){
+        alert('Enter win record!');
+      }
       if (user != "Choose a Name"){
         firebaseRef.child(user).child(currentTime).set(userData);
         console.log(userData);}
       else {
         alert("Choose a player");
       }
+      
       alert('Submission Complete');
     });
   });
