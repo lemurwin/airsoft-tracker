@@ -1,14 +1,14 @@
 
-
+//boilerplate jquery
 $(document).ready(function(){
-
+  //Render title page
   $('#players').change(function(){
     var name = $('select[name="players"]').val();
     $('#namePlace').html(name);
   });
 
 
-
+  //building a timestamp function to reference objects by date
   const timestamp = function(){
     const today= new Date();
     let y = today.getFullYear();
@@ -33,7 +33,7 @@ $(document).ready(function(){
   };
 
 
-
+  //what kind of data we want to store for a user
   let userData = {
     kills: 0,
     deaths: 0,
@@ -41,7 +41,7 @@ $(document).ready(function(){
     record: 0,
   };
 
-
+  //Adding information to userdata
   $('#killsCounter').html(userData.kills);
   $('#deathsCounter').html(userData.deaths);
 
@@ -55,6 +55,7 @@ $(document).ready(function(){
     $('#deathsCounter').html(userData.deaths);
   });
 
+  //added a reset button
   $('#reset').click(function(){
     userData.kills=0;
     userData.deaths=0;
@@ -62,7 +63,7 @@ $(document).ready(function(){
     $('#deathsCounter').html(userData.deaths);
   })
 
-
+  //submitting to Firebase
   $('#submit').click(function(){
     var firebaseRef = firebase.database().ref();
 
@@ -73,6 +74,8 @@ $(document).ready(function(){
 
       userData.record = record;
       userData.location = location;
+
+      //Throwing errors to prompt users to fix data
       if (record == undefined){
         alert('Enter win record!');
       }
@@ -82,7 +85,7 @@ $(document).ready(function(){
       else {
         alert("Choose a player");
       }
-      
+
       alert('Submission Complete');
     });
   });
