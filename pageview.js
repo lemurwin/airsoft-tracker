@@ -9,30 +9,29 @@ $('#gameContainer').html('');
 
   var firebaseUser = firebase.database().ref(name);
   firebaseUser.on('value', function(snapshot){
-    let userArray = snapshot.val();
-    console.log(userArray);
+    $('#gameContainer').html('');
+      let userArray = snapshot.val();
+      //console.log(userArray);
 
-     $.each(userArray, function(key, value){
+      $.each(userArray, function(key, value){
 
        let month = key.substr(4, 2);
        let day = key.substr(6, 2);
        let year = key.substr(0,4);
        let time = key.substr(8, 4);
 
-       $('#gameContainer').append('<div class="col-sm-12"><h3>Date '+ month+'/'+day + '/' + year+' '+time+'</h3>');
-       let deathCounter = 0;
-       let killCounter = 0;
+       let deathCounter = value.deaths;
+       let killCounter = value.kills;
+       let kdRatio = killCounter/deathCounter;
 
-       $.each(value, function(key1, value1){
-         if (key1=="kills"){
-           killCounter = value1
-         } else {
-           deathCounter = value1
-         }
-          $('#gameContainer').append('<div class="col-sm-12">' + value1+" "+ key1+ "</div>");
-         });
-         $('#gameContainer').append('<div class="col-sm-12">K/D Ratio: '+ killCounter/deathCounter + '</div>');
+       let titleRender = '<div class="row"><div class="col-md-12"><h3>Date ';
+       let statsRender = '<div class="row"><div class="col-md-6 ">';
+       let statsRenderEnd = '</div></div>';
+       $('#gameContainer').append(titleRender + month+'/'+day + '/' + year+' '+time+'</h3>');
+       $('#gameContainer').append(statsRender+'Kills: '+killCounter+ statsRenderEnd+statsRender+'Deaths: '+deathCounter+statsRenderEnd);
+       $('#gameContainer').append(statsRender+'K/D Ratio: '+ killCounter/deathCounter + statsRenderEnd);
+          });
+
         });
-       });
-         });
-     });
+    });
+});
