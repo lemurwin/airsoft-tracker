@@ -23,11 +23,16 @@ $('#gameContainer').html('');
        let deathCounter = value.deaths;
        let killCounter = value.kills;
        let kdRatio = killCounter/deathCounter;
+       let location = value.location;
+       if (value.location == undefined) {
+         location = "No Location Data Logged"
+       };
 
        let titleRender = '<div class="row"><div class="col-md-12"><h3>Date ';
        let statsRender = '<div class="row"><div class="col-md-6 ">';
        let statsRenderEnd = '</div></div>';
        $('#gameContainer').append(titleRender + month+'/'+day + '/' + year+' '+time+'</h3>');
+       $('#gameContainer').append(statsRender + location + statsRenderEnd);
        $('#gameContainer').append(statsRender+'Kills: '+killCounter+ statsRenderEnd+statsRender+'Deaths: '+deathCounter+statsRenderEnd);
        $('#gameContainer').append(statsRender+'K/D Ratio: '+ killCounter/deathCounter + statsRenderEnd);
           });

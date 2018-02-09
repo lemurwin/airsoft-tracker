@@ -37,6 +37,7 @@ $(document).ready(function(){
   let userData = {
     kills: 0,
     deaths: 0,
+    location: 0,
   };
 
 
@@ -65,14 +66,14 @@ $(document).ready(function(){
     var firebaseRef = firebase.database().ref();
 
       let currentTime= timestamp();
-    let user = $('select[name="players"]').val();
-    if (user != "Choose a Name"){
-    firebaseRef.child(user).child(currentTime).set(userData);
-    console.log(userData);}
-    else {
-      alert("Choose a player");
-    };
-  });
-
-
+      let user = $('select[name="players"]').val();
+      let location = $('input[name="location"]').val();
+      userData.location = location;
+      if (user != "Choose a Name"){
+        firebaseRef.child(user).child(currentTime).set(userData);
+        console.log(userData);}
+      else {
+        alert("Choose a player");
+      }
     });
+  });
