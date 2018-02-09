@@ -29,7 +29,7 @@ $('#gameContainer').html('');
        };
 
        let titleRender = '<div class="row"><div class="col-md-12"><h3>Date ';
-       let statsRender = '<div class="row"><div class="col-md-6 ">';
+       let statsRender = '<div class="row"><div class="col-md-12 ">';
        let statsRenderEnd = '</div></div>';
        $('#gameContainer').append(titleRender + month+'/'+day + '/' + year+' '+time+'</h3>');
        $('#gameContainer').append(statsRender + location + statsRenderEnd);
