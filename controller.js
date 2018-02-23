@@ -6,6 +6,12 @@ $(document).ready(function(){
     var name = $('select[name="players"]').val();
     $('#namePlace').html(name);
   });
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
 
 
   //building a timestamp function to reference objects by date
