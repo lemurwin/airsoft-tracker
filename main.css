@@ -1,40 +1,59 @@
 h1{
   font-size: 30px;
 }
+body{
+  background-color:black;
+  color:white;
+}
+#players{
+  color:white;
+  background-color: black;
+}
 #kills{
-  background-color:green;
+  background-color:darkgreen;
   height:240px;
   width:100%;
   font-size:40px;
+  color:white;
+  border:none;
 }
 #deaths{
   height:70px;
   width:100%;
   background-color:red;
+  color:white;
   font-size:30px;
+  border:none;
 }
 #reset{
   height:50px;
   width:50%;
   background-color:pink;
+  border:none;
+  color:black;
+}
+#location{
+  border:none;
 }
 #submit{
   height:50px;
   width:50%;
   background-color:greenyellow;
+  border:none;
+  color:black;
 }
 #counter{
   font-size:30px;
-  color:black;
+  color:white;
 }
 #killsCounter{
   font-size: 30px;
-  color:black;
+  color:white;
 }
 
 #deathsCounter{
   font-size:30px;
-  color:black;
+  color:white;
 }
 #totalRatio{
   font-size: 16px;
@@ -43,7 +62,6 @@ h1{
 
 .navbar{
   border:none;
-  background-color: white;
   font-size:75%;
 }
 .container{
